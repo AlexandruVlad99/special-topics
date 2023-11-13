@@ -22,3 +22,27 @@
 # API Endpoints
 
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/f7c24424-702f-4990-9fcc-9382d37de3fe)
+
+- Get all ToDo items
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/a98a2297-cd83-4dc6-b211-dc1c070a2dd4)
+
+- Add a new ToDo item
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/70d1f603-3374-499e-858a-b84a806f5b87)
+
+- Update a ToDo item
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/24aca1e7-b89d-4d95-b9ce-e14c2af870cb)
+
+- Delete a ToDo item
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/08a2be9b-4e10-4191-af34-888c243d5ea6)
+
+- Get details of a ToDo item
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/902881b0-f5ba-4cca-8247-2a64d18bc0ab)
+
+- Schemas
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/053fff23-08f7-40b5-b17f-bdd09e6fecba)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/729a758f-0193-414a-ac45-fe487e6e3154)
+
+
+
+
+
