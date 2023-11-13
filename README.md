@@ -1,4 +1,4 @@
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/80359d9d-cc54-4ffb-a411-37e706e7cee1)# To-Do List Application
+# To-Do List Application
 
 # Project Overview
 
