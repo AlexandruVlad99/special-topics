@@ -43,12 +43,11 @@ public class ToDoService {
         return toDoRepository.save(existingToDo);
     }
 
-    public ToDo deleteToDo(Long id) {
+    public void deleteToDo(Long id) {
         ToDo toDo = toDoRepository.findById(String.valueOf(id))
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
 
         toDoRepository.delete(toDo);
-        return toDo;
     }
 
     public ToDoResponse getToDoDetails(Long id) {
@@ -67,7 +66,6 @@ public class ToDoService {
             throw new BadRequestException("Invalid status provided.");
         }
 
-        // Update the status
         toDo.setStatus(newStatus);
         toDoRepository.save(toDo);
 

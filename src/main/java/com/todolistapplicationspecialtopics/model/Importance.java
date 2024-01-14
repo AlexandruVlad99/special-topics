@@ -1,6 +1,5 @@
 package com.todolistapplicationspecialtopics.model;
 
-public enum Importance
-{
+public enum Importance {
     LOW, MEDIUM, HIGH, URGENT
 }
