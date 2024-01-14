@@ -1,6 +1,6 @@
 package com.todolistapplicationspecialtopics.service;
 
-import com.todolistapplicationspecialtopics.dto.UpdateToDoRequest;
+import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.exception.ToDoNotFoundException;
 import com.todolistapplicationspecialtopics.model.ToDo;
 import com.todolistapplicationspecialtopics.repository.ToDoRepository;

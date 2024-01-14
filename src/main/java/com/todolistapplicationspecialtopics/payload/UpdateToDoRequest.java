@@ -1,4 +1,4 @@
-package com.todolistapplicationspecialtopics.dto;
+package com.todolistapplicationspecialtopics.payload;
 
 import com.todolistapplicationspecialtopics.model.Importance;
 import com.todolistapplicationspecialtopics.model.Status;
