@@ -24,7 +24,20 @@ public class ToDoService {
         this.toDoRepository = toDoRepository;
     }
 
-    public List<ToDo> getAllToDos() {
+    public List<ToDo> getAllToDos(String status, String importance) {
+
+        if (status != null && importance != null) {
+            return toDoRepository.findByStatusAndImportance(status, importance);
+        }
+
+        if (status != null) {
+            return toDoRepository.findByStatus(status);
+        }
+
+        if (importance != null) {
+            return toDoRepository.findByImportance(importance);
+        }
+
         return toDoRepository.findAll();
     }
 
