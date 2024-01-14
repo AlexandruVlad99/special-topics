@@ -1,7 +1,5 @@
 package com.todolistapplicationspecialtopics.controller;
 
-import com.todolistapplicationspecialtopics.dto.ToDoResponse;
-import com.todolistapplicationspecialtopics.dto.PatchToDoRequest;
 import com.todolistapplicationspecialtopics.dto.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.model.ToDo;
 import com.todolistapplicationspecialtopics.service.ToDoService;
@@ -46,8 +44,7 @@ public class ToDoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<ToDo> updateToDo(@PathVariable String id, @RequestBody UpdateToDoRequest updateRequest) {
-        updateRequest.setId(id);
-        ToDo updatedToDo = toDoService.updateToDo(updateRequest);
+        ToDo updatedToDo = toDoService.updateToDo(id, updateRequest);
         return new ResponseEntity<>(updatedToDo, HttpStatus.OK);
     }
 
@@ -58,16 +55,15 @@ public class ToDoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ToDoResponse> getToDoDetails(@PathVariable String id) {
-        ToDoResponse toDoDetails = toDoService.getToDoDetails(id);
-        return ResponseEntity.ok(toDoDetails);
+    public ResponseEntity<ToDo> getToDoDetails(@PathVariable String id) {
+        return ResponseEntity.ok(toDoService.getToDoDetails(id));
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ToDoResponse> updateToDoStatus(
+    public ResponseEntity<ToDo> updateToDoStatus(
             @PathVariable String id,
-            @RequestBody PatchToDoRequest patchToDoRequest) {
-        ToDoResponse updatedToDo = toDoService.patchToDo(id, patchToDoRequest);
+            @RequestBody UpdateToDoRequest patchToDoRequest) {
+        ToDo updatedToDo = toDoService.patchToDo(id, patchToDoRequest);
         return ResponseEntity.ok(updatedToDo);
     }
 

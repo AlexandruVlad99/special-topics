@@ -1,7 +1,5 @@
 package com.todolistapplicationspecialtopics.service;
 
-import com.todolistapplicationspecialtopics.dto.PatchToDoRequest;
-import com.todolistapplicationspecialtopics.dto.ToDoResponse;
 import com.todolistapplicationspecialtopics.dto.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.exception.ToDoNotFoundException;
 import com.todolistapplicationspecialtopics.model.ToDo;
@@ -46,8 +44,8 @@ public class ToDoService {
     }
 
     @Transactional
-    public ToDo updateToDo(UpdateToDoRequest updateRequest) {
-        ToDo existingToDo = toDoRepository.findById(updateRequest.getId())
+    public ToDo updateToDo(String id, UpdateToDoRequest updateRequest) {
+        ToDo existingToDo = toDoRepository.findById(id)
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
 
         existingToDo.setExplanation(updateRequest.getExplanation());
@@ -64,14 +62,12 @@ public class ToDoService {
         toDoRepository.delete(toDo);
     }
 
-    public ToDoResponse getToDoDetails(String id) {
-        ToDo toDo = toDoRepository.findById(id)
+    public ToDo getToDoDetails(String id) {
+        return toDoRepository.findById(id)
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
-
-        return mapToDoEntityToResponse(toDo);
     }
 
-    public ToDoResponse patchToDo(String id, PatchToDoRequest patchToDoRequest) {
+    public ToDo patchToDo(String id, UpdateToDoRequest patchToDoRequest) {
         ToDo toDo = toDoRepository.findById(id)
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found."));
 
@@ -89,17 +85,7 @@ public class ToDoService {
 
         toDoRepository.save(toDo);
 
-        return mapToDoEntityToResponse(toDo);
-    }
-
-    private ToDoResponse mapToDoEntityToResponse(ToDo toDo) {
-        ToDoResponse response = new ToDoResponse();
-        response.setId(toDo.getId());
-        response.setExplanation(toDo.getExplanation());
-        response.setImportance(toDo.getImportance());
-        response.setStatus(toDo.getStatus());
-        response.setCreationDate(toDo.getCreationDate());
-        return response;
+        return toDo;
     }
 }
 
