@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateToDoRequest {
-    private Long id;
+    private String id;
     private String explanation;
     private Importance importance;
     private Status status;

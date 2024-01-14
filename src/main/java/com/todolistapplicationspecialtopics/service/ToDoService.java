@@ -1,11 +1,9 @@
 package com.todolistapplicationspecialtopics.service;
 
+import com.todolistapplicationspecialtopics.dto.PatchToDoRequest;
 import com.todolistapplicationspecialtopics.dto.ToDoResponse;
-import com.todolistapplicationspecialtopics.dto.UpdateStatusRequest;
 import com.todolistapplicationspecialtopics.dto.UpdateToDoRequest;
-import com.todolistapplicationspecialtopics.exception.BadRequestException;
 import com.todolistapplicationspecialtopics.exception.ToDoNotFoundException;
-import com.todolistapplicationspecialtopics.model.Status;
 import com.todolistapplicationspecialtopics.model.ToDo;
 import com.todolistapplicationspecialtopics.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +47,7 @@ public class ToDoService {
 
     @Transactional
     public ToDo updateToDo(UpdateToDoRequest updateRequest) {
-        ToDo existingToDo = toDoRepository.findById(String.valueOf(updateRequest.getId()))
+        ToDo existingToDo = toDoRepository.findById(updateRequest.getId())
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
 
         existingToDo.setExplanation(updateRequest.getExplanation());
@@ -59,39 +57,44 @@ public class ToDoService {
         return toDoRepository.save(existingToDo);
     }
 
-    public void deleteToDo(Long id) {
-        ToDo toDo = toDoRepository.findById(String.valueOf(id))
+    public void deleteToDo(String id) {
+        ToDo toDo = toDoRepository.findById(id)
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
 
         toDoRepository.delete(toDo);
     }
 
-    public ToDoResponse getToDoDetails(Long id) {
-        ToDo toDo = toDoRepository.findById(String.valueOf(id))
+    public ToDoResponse getToDoDetails(String id) {
+        ToDo toDo = toDoRepository.findById(id)
                 .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
 
         return mapToDoEntityToResponse(toDo);
     }
 
-    public ToDoResponse updateToDoStatus(Long id, UpdateStatusRequest updateStatusRequest) {
-        ToDo toDo = toDoRepository.findById(String.valueOf(id))
-                .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found"));
+    public ToDoResponse patchToDo(String id, PatchToDoRequest patchToDoRequest) {
+        ToDo toDo = toDoRepository.findById(id)
+                .orElseThrow(() -> new ToDoNotFoundException("ToDo item not found."));
 
-        Status newStatus = updateStatusRequest.getStatus();
-        if (newStatus == null || !Status.isValidStatus(newStatus)) {
-            throw new BadRequestException("Invalid status provided.");
+        if (patchToDoRequest.getExplanation() != null) {
+            toDo.setExplanation(patchToDoRequest.getExplanation());
         }
 
-        toDo.setStatus(newStatus);
+        if (patchToDoRequest.getImportance() != null) {
+            toDo.setImportance(patchToDoRequest.getImportance());
+        }
+
+        if (patchToDoRequest.getStatus() != null) {
+            toDo.setStatus(patchToDoRequest.getStatus());
+        }
+
         toDoRepository.save(toDo);
 
         return mapToDoEntityToResponse(toDo);
     }
 
-
     private ToDoResponse mapToDoEntityToResponse(ToDo toDo) {
         ToDoResponse response = new ToDoResponse();
-        response.setId(Long.valueOf(toDo.getId()));
+        response.setId(toDo.getId());
         response.setExplanation(toDo.getExplanation());
         response.setImportance(toDo.getImportance());
         response.setStatus(toDo.getStatus());

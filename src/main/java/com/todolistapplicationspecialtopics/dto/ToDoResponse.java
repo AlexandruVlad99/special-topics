@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ToDoResponse {
-    private Long id;
+    private String id;
     private String explanation;
     private Importance importance;
     private Status status;
