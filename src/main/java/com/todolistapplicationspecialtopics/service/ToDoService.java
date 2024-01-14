@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +29,8 @@ public class ToDoService {
     }
 
     public ToDo addToDo(ToDo newToDo) {
+        newToDo.setCreationDate(new Date());
+
         return toDoRepository.save(newToDo);
     }
 
@@ -79,6 +82,7 @@ public class ToDoService {
         response.setExplanation(toDo.getExplanation());
         response.setImportance(toDo.getImportance());
         response.setStatus(toDo.getStatus());
+        response.setCreationDate(toDo.getCreationDate());
         return response;
     }
 }
