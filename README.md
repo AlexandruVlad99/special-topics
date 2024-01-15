@@ -26,7 +26,7 @@
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/e15b77e6-2c8a-4740-88f6-52442a1f0616)
 
 - Add a new ToDo item
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/70d1f603-3374-499e-858a-b84a806f5b87)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/7f8e0431-bae9-444d-92bc-430f65e86639)
 
 - Update a ToDo item
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/24aca1e7-b89d-4d95-b9ce-e14c2af870cb)
