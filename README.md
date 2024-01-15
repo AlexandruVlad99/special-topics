@@ -14,10 +14,9 @@
 # Technology stack
   The To-Do List Application leverages modern technologies to ensure a robust and scalable backend:
 - Spring Boot with Java 17: A powerful and flexible framework for building Java-based applications, providing a solid foundation for the To-Do List API.
-- Kafka: A distributed event streaming platform that enhances communication between different components, ensuring real-time updates and seamless integration.
-- PostgreSQL: A reliable relational database for storing and managing task data securely.
 - Docker: Simplifies deployment and ensures consistency across different environments by containerizing the application.
-- ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat): Elasticsearch powers the search functionality, Logstash aids in data processing, Kibana offers visualization, and Filebeat handles log file shipping.
+- Elasticsearch : Powers the search functionality.
+- Kibana: Offers visualization.
 
 # API Endpoints
 
