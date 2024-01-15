@@ -2,6 +2,7 @@ package com.todolistapplicationspecialtopics.service;
 
 import com.todolistapplicationspecialtopics.exception.ToDoNotFoundException;
 import com.todolistapplicationspecialtopics.model.ToDo;
+import com.todolistapplicationspecialtopics.payload.AddToDoRequest;
 import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,10 +38,16 @@ public class ToDoService {
         return toDoRepository.findAll();
     }
 
-    public ToDo addToDo(ToDo newToDo) {
-        newToDo.setCreationDate(new Date());
+    public ToDo addToDo(AddToDoRequest newToDo) {
+        ToDo toDo = ToDo.builder()
+                .importance(newToDo.getImportance())
+                .explanation(newToDo.getExplanation())
+                .status(newToDo.getStatus())
+                .subTasks(newToDo.getSubTasks())
+                .creationDate(new Date())
+                .build();
 
-        return toDoRepository.save(newToDo);
+        return toDoRepository.save(toDo);
     }
 
     @Transactional

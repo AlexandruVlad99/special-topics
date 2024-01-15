@@ -1,6 +1,7 @@
 package com.todolistapplicationspecialtopics.controller;
 
 import com.todolistapplicationspecialtopics.model.ToDo;
+import com.todolistapplicationspecialtopics.payload.AddToDoRequest;
 import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class ToDoController {
     }
 
     @PostMapping
-    public ResponseEntity<ToDo> createToDo(@RequestBody ToDo newToDo) {
+    public ResponseEntity<ToDo> createToDo(@RequestBody AddToDoRequest newToDo) {
         ToDo savedToDo = toDoService.addToDo(newToDo);
         return new ResponseEntity<>(savedToDo, HttpStatus.CREATED);
     }
