@@ -33,20 +33,32 @@ paths:
               examples:
                 example1:
                   value:
-                    - id: 1
+                    - id: "SUihDo0BWd8YbuSOT16p"
                       explanation: "Buy groceries"
                       importance: "HIGH"
                       status: "CREATED"
-                    - id: 2
+                      creationDate: "2024-01-15T19:37:49.220+00:00"
+                      subTasks:
+                          - name: "Buy tomatoes"
+                            completed: false
+                          - name: "Buy cheese"
+                            completed: true
+                            
+                    - id: "SkjdDo0BWd8YbuSOV14e"
                       explanation: "Finish project"
                       importance: "MEDIUM"
                       status: "COMPLETED"
+                      creationDate: "2024-01-15T19:37:49.220+00:00"
+                      subTasks:
+                          - name: "Don't forget to save it"
+                            completed: false
                 example2:
                   value:
-                    - id: 3
+                    - id: "S0jfDo0BWd8YbuSOQF4g"
                       explanation: "Read a book"
                       importance: "LOW"
                       status: "POSTPONED"
+                      creationDate: "2024-01-15T19:37:49.220+00:00"
         '500':
           description: Internal server error
 
@@ -64,6 +76,10 @@ paths:
                 value:
                   explanation: "Go for a run"
                   importance: "MEDIUM"
+                  status: "CREATED"
+                  subTasks:
+                    - name: "Drink water"
+                      completed: true
               example2:
                 value:
                   explanation: "Work on a project"
@@ -76,10 +92,20 @@ paths:
               examples:
                 example1:
                   value:
-                    id: 4
+                    id: "TEjoDo0BWd8YbuSOfF4X"
+                    explanation: "Go for a run"
+                    importance: "MEDIUM"
+                    status: "CREATED"
+                    creationDate: "2024-01-15T20:55:33.601+00:00"
+                    subTasks:
+                      - name: "Drink water"
+                        completed: true
                 example2:
                   value:
-                    id: 5
+                    id: "TEjoDo0BWd8YbuSOfF4Y"
+                    explanation: "Work on a project"
+                    importance: "HIGH"
+                    creationDate: "2024-01-15T20:55:33.601+00:00"
         '400':
           description: Bad request
           content:
@@ -98,7 +124,7 @@ paths:
           required: true
           description: ToDo item ID
           schema:
-            type: integer
+            type: string
       requestBody:
         description: Updated ToDo item details
         required: true
@@ -109,19 +135,35 @@ paths:
             examples:
               example1:
                 value:
-                  id: 1
                   explanation: "Buy groceries"
                   importance: "HIGH"
                   status: "CREATED"
               example2:
                 value:
-                  id: 2
                   explanation: "Finish project"
                   importance: "LOW"
                   status: "COMPLETED"
       responses:
         '200':
           description: Successfully updated
+          content:
+            application/json:
+              examples:
+                example1:
+                  value:
+                    id: "TEjoDo0BWd8YbuSOfF4Z"
+                    explanation: "Buy groceries"
+                    importance: "HIGH"
+                    status: "CREATED"
+                    creationDate: "2024-01-15T20:55:33.601+00:00"
+                example2:
+                  value:
+                    id: "TEjoDo0BWd8YbuSOfF4A"
+                    explanation: "Finish project"
+                   
+                    importance: "LOW"
+                    status: "COMPLETED"
+                    creationDate: "2024-01-15T20:55:33.601+00:00"
         '400':
           description: Bad request
           content:
@@ -145,7 +187,7 @@ paths:
           required: true
           description: ToDo item ID
           schema:
-            type: integer
+            type: string
       responses:
         '204':
           description: Successfully deleted
@@ -166,7 +208,7 @@ paths:
           required: true
           description: ToDo item ID
           schema:
-            type: integer
+            type: string
       responses:
         '200':
           description: Successfully retrieved details
@@ -177,13 +219,14 @@ paths:
               examples:
                 example1:
                   value:
-                    id: 1
+                    id: "SUihDo0BWd8YbuSOT16p"
                     explanation: "Buy groceries"
                     importance: "HIGH"
                     status: "CREATED"
+                    creationDate: "2024-01-15T19:37:49.220+00:00"
                 example2:
                   value:
-                    id: 2
+                    id: "SUihDo0BWd8YbuSOT16y"
                     explanation: "Finish project"
                     importance: "MEDIUM"
                     status: "COMPLETED"
@@ -197,14 +240,14 @@ paths:
           description: Internal server error
           
     patch:
-      summary: Update the status of a ToDo item
+      summary: Patch a ToDo item
       parameters:
         - in: path
           name: id
           required: true
           description: ToDo item ID
           schema:
-            type: integer
+            type: string
       requestBody:
         description: Update for the status of a ToDo item
         required: true
@@ -229,13 +272,13 @@ paths:
               examples:
                 example1:
                   value:
-                    id: 1
+                    id: "SUihDo0BWd8YbuSOT16p"
                     explanation: "Buy groceries"
                     importance: "HIGH"
                     status: "COMPLETED"
                 example2:
                   value:
-                    id: 2
+                    id: "SUihDo0BWd8YbuSOT16y"
                     explanation: "Finish project"
                     importance: "LOW"
                     status: "POSTPONED"
@@ -261,8 +304,7 @@ components:
       type: object
       properties:
         id:
-          type: integer
-          format: int64
+          type: string
           description: Unique identifier for the ToDo item
         explanation:
           type: string
@@ -271,6 +313,14 @@ components:
           $ref: '#/components/schemas/Importance'
         status:
           $ref: '#/components/schemas/Status'
+        creationDate:
+          type: string
+          format: date-time
+          description: Date and time of ToDo item creation
+        subTasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTask'
 
     AddToDoRequest:
       type: object
@@ -285,19 +335,18 @@ components:
         importance:
           $ref: '#/components/schemas/Importance'
           description: Importance level
+        subTasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTask'
 
     UpdateToDoRequest:
       type: object
       required:
-        - id
         - explanation
         - importance
         - status
       properties:
-        id:
-          type: integer
-          format: int64
-          description: Unique identifier for the ToDo item
         explanation:
           type: string
           description: Explanation for the ToDo item
@@ -308,7 +357,11 @@ components:
         status:
           $ref: '#/components/schemas/Status'
           description: Status of the ToDo item
-          
+        subTasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTask'
+
     UpdateStatusRequest:
       type: object
       properties:
@@ -325,5 +378,13 @@ components:
       type: string
       enum: [CREATED, COMPLETED, POSTPONED, DELETED]
       description: Status
-      
-    
+
+    SubTask:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the subtask
+        completed:
+          type: boolean
+          description: Completion status of the subtask
