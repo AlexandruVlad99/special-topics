@@ -1,8 +1,8 @@
 package com.todolistapplicationspecialtopics.service;
 
-import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.exception.ToDoNotFoundException;
 import com.todolistapplicationspecialtopics.model.ToDo;
+import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +51,7 @@ public class ToDoService {
         existingToDo.setExplanation(updateRequest.getExplanation());
         existingToDo.setImportance(updateRequest.getImportance());
         existingToDo.setStatus(updateRequest.getStatus());
+        existingToDo.setSubTasks(updateRequest.getSubTasks());
 
         return toDoRepository.save(existingToDo);
     }
@@ -81,6 +82,10 @@ public class ToDoService {
 
         if (patchToDoRequest.getStatus() != null) {
             toDo.setStatus(patchToDoRequest.getStatus());
+        }
+
+        if (patchToDoRequest.getSubTasks() != null) {
+            toDo.setSubTasks(patchToDoRequest.getSubTasks());
         }
 
         toDoRepository.save(toDo);

@@ -10,6 +10,7 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.util.Date;
+import java.util.List;
 
 @Document(indexName = "todos")
 @Data
@@ -32,5 +33,8 @@ public class ToDo {
 
     @Field(type = FieldType.Long)
     private Date creationDate;
+
+    @Field(type = FieldType.Nested)
+    private List<SubTask> subTasks;
 }
 

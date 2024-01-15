@@ -60,7 +60,7 @@ public class ToDoController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<ToDo> updateToDoStatus(
+    public ResponseEntity<ToDo> patchToDo(
             @PathVariable String id,
             @RequestBody UpdateToDoRequest patchToDoRequest) {
         ToDo updatedToDo = toDoService.patchToDo(id, patchToDoRequest);
