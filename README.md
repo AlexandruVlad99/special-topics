@@ -41,8 +41,8 @@
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/e7d5779b-44df-4f1b-b2b2-a328fba8da50)
 
 - Schemas
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/053fff23-08f7-40b5-b17f-bdd09e6fecba)
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/729a758f-0193-414a-ac45-fe487e6e3154)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/9be01f46-16be-42fb-b0b2-a7312f038543)
+
 
 
 
