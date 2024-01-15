@@ -20,7 +20,7 @@
 
 # API Endpoints
 
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/f7c24424-702f-4990-9fcc-9382d37de3fe)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/eaadb626-1eab-4c61-8915-10539fdb4c66)
 
 - Get all ToDo items
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/a98a2297-cd83-4dc6-b211-dc1c070a2dd4)
