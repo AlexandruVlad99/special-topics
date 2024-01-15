@@ -23,7 +23,7 @@
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/eaadb626-1eab-4c61-8915-10539fdb4c66)
 
 - Get all ToDo items
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/a98a2297-cd83-4dc6-b211-dc1c070a2dd4)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/e15b77e6-2c8a-4740-88f6-52442a1f0616)
 
 - Add a new ToDo item
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/70d1f603-3374-499e-858a-b84a806f5b87)
