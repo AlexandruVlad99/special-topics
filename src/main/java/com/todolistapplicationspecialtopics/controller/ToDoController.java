@@ -1,7 +1,7 @@
 package com.todolistapplicationspecialtopics.controller;
 
-import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.model.ToDo;
+import com.todolistapplicationspecialtopics.payload.UpdateToDoRequest;
 import com.todolistapplicationspecialtopics.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
