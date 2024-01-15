@@ -29,13 +29,16 @@
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/7f8e0431-bae9-444d-92bc-430f65e86639)
 
 - Update a ToDo item
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/24aca1e7-b89d-4d95-b9ce-e14c2af870cb)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/d759b68d-f9b5-4e57-b7bb-0f85a5de4059)
 
 - Delete a ToDo item
-![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/08a2be9b-4e10-4191-af34-888c243d5ea6)
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/7686e08f-c1f5-4f13-9ec8-55bab29f3d0a)
 
 - Get details of a ToDo item
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/902881b0-f5ba-4cca-8247-2a64d18bc0ab)
+
+- Patch a ToDo item
+![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/e7d5779b-44df-4f1b-b2b2-a328fba8da50)
 
 - Schemas
 ![image](https://github.com/AlexandruVlad99/special-topics/assets/82368238/053fff23-08f7-40b5-b17f-bdd09e6fecba)
