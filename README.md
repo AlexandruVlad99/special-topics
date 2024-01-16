@@ -17,7 +17,7 @@
 - Docker: Simplifies deployment and ensures consistency across different environments by containerizing the application.
 - Elasticsearch : Powers the search functionality.
 - Kibana: Offers visualization.
-- Postman: Test API
+- Postman: Test To-Do List API
 
 # API Endpoints
 
